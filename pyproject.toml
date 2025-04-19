@@ -21,6 +21,7 @@ line-length = 88
 target-version = "py311"
 extend-exclude = ["migrations", "__pycache__"]
 
+[tool.ruff.lint]
 select = [
     "E",
     "F",
@@ -45,13 +46,14 @@ ignore = [
     "D105",
     "D106",
     "D107",
+    "D211",
+    "D212",
     "PLR0913",
     "PLR2004",
-    "C901",
+    "C901"
 ]
 
 [tool.ruff.format]
 quote-style = "double"
 docstring-code-format = true
 preview = true
-
