@@ -1,0 +1,57 @@
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.115.12"
+uvicorn = { extras = ["standard"], version = "^0.34.1" }
+alembic = "^1.15.2"
+sqlalchemy = "^2.0.40"
+asyncpg = "^0.30.0"
+pydantic = ">=2.0,<3.0"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+ruff = "^0.4.2"
+
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+extend-exclude = ["migrations", "__pycache__"]
+
+select = [
+    "E",
+    "F",
+    "B",
+    "I",
+    "UP",
+    "C90",
+    "N",
+    "D",
+    "PL",
+    "ASYNC",
+    "RUF",
+    "A"
+]
+
+ignore = [
+    "D100",
+    "D101",
+    "D102",
+    "D103",
+    "D104",
+    "D105",
+    "D106",
+    "D107",
+    "PLR0913",
+    "PLR2004",
+    "C901",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+docstring-code-format = true
+preview = true
+
