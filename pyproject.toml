@@ -58,3 +58,6 @@ ignore = [
 quote-style = "double"
 docstring-code-format = true
 preview = true
+
+[tool.ruff.extend-per-file-ignores]
+"alembic/env.py" = ["ANN401", "S101", "S311"]
