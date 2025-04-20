@@ -10,7 +10,7 @@ load_dotenv(dotenv_path=ENV_PATH)
 
 class Settings:
     def __init__(self):
-        self.sql_host = "0.0.0.0"
+        self.sql_host = os.getenv("SQL_HOST")
         self.sql_port = int(os.getenv("SQL_PORT", 5432))
         self.sql_base = os.getenv("SQL_BASE")
         self.sql_user = os.getenv("SQL_USER")
@@ -18,6 +18,9 @@ class Settings:
 
     @property
     def db_url(self) -> str:
-        return f"postgresql+asyncpg://{self.sql_user}:{self.sql_pass}@{self.sql_host}:{self.sql_port}/{self.sql_base}"
+        return f"postgresql+asyncpg://{self.sql_user}:{self.sql_pass}@0.0.0.0:{self.sql_port}/{self.sql_base}"
 
 settings = Settings()
+
+DATABASE_URL = settings.db_url
+
